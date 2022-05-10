@@ -1,0 +1,436 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome1",
+    "definitions": {
+        "Welcome1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "schema": {
+                    "$ref": "#/definitions/Schema"
+                }
+            },
+            "required": [
+                "schema"
+            ],
+            "title": "Welcome1"
+        },
+        "Schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "element": {
+                    "$ref": "#/definitions/SchemaElement"
+                },
+                "complexType": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ComplexTypeElement"
+                    }
+                },
+                "simpleType": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SimpleTypeElement"
+                    }
+                },
+                "_version": {
+                    "type": "string"
+                },
+                "_xmlns:xs": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "http"
+                    ]
+                },
+                "_elementFormDefault": {
+                    "type": "string"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_elementFormDefault",
+                "_version",
+                "_xmlns:xs",
+                "complexType",
+                "element",
+                "simpleType"
+            ],
+            "title": "Schema"
+        },
+        "ComplexTypeElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "sequence": {
+                    "$ref": "#/definitions/PurpleSequence"
+                },
+                "_name": {
+                    "$ref": "#/definitions/Name"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_name",
+                "sequence"
+            ],
+            "title": "ComplexTypeElement"
+        },
+        "PurpleSequence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "element": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ElementElement"
+                    }
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "element"
+            ],
+            "title": "PurpleSequence"
+        },
+        "ElementElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "simpleType": {
+                    "$ref": "#/definitions/ElementSimpleType"
+                },
+                "_name": {
+                    "type": "string"
+                },
+                "_minOccurs": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "_maxOccurs": {
+                    "type": "string"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                },
+                "annotation": {
+                    "$ref": "#/definitions/Annotation"
+                },
+                "_type": {
+                    "$ref": "#/definitions/Name"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_name"
+            ],
+            "title": "ElementElement"
+        },
+        "Annotation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "documentation": {
+                    "$ref": "#/definitions/Documentation"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "documentation"
+            ],
+            "title": "Annotation"
+        },
+        "Documentation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_xml:lang": {
+                    "$ref": "#/definitions/XMLLang"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                },
+                "__text": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "__prefix",
+                "__text",
+                "_xml:lang"
+            ],
+            "title": "Documentation"
+        },
+        "ElementSimpleType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "annotation": {
+                    "$ref": "#/definitions/Annotation"
+                },
+                "restriction": {
+                    "$ref": "#/definitions/PurpleRestriction"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "annotation",
+                "restriction"
+            ],
+            "title": "ElementSimpleType"
+        },
+        "PurpleRestriction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "enumeration": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/MaxLength"
+                    }
+                },
+                "_base": {
+                    "type": "string"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                },
+                "minInclusive": {
+                    "$ref": "#/definitions/MaxLength"
+                },
+                "maxInclusive": {
+                    "$ref": "#/definitions/MaxLength"
+                },
+                "fractionDigits": {
+                    "$ref": "#/definitions/MaxLength"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_base"
+            ],
+            "title": "PurpleRestriction"
+        },
+        "MaxLength": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_value": {
+                    "type": "string"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_value"
+            ],
+            "title": "MaxLength"
+        },
+        "SchemaElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "complexType": {
+                    "$ref": "#/definitions/ElementComplexType"
+                },
+                "_name": {
+                    "type": "string"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_name",
+                "complexType"
+            ],
+            "title": "SchemaElement"
+        },
+        "ElementComplexType": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "sequence": {
+                    "$ref": "#/definitions/FluffySequence"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "sequence"
+            ],
+            "title": "ElementComplexType"
+        },
+        "FluffySequence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "element": {
+                    "$ref": "#/definitions/ChoiceElement"
+                },
+                "choice": {
+                    "$ref": "#/definitions/Choice"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "choice",
+                "element"
+            ],
+            "title": "FluffySequence"
+        },
+        "Choice": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "element": {
+                    "$ref": "#/definitions/ChoiceElement"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "element"
+            ],
+            "title": "Choice"
+        },
+        "ChoiceElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_name": {
+                    "type": "string"
+                },
+                "_type": {
+                    "$ref": "#/definitions/Name"
+                },
+                "_minOccurs": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "_maxOccurs": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_maxOccurs",
+                "_minOccurs",
+                "_name",
+                "_type"
+            ],
+            "title": "ChoiceElement"
+        },
+        "SimpleTypeElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "restriction": {
+                    "$ref": "#/definitions/FluffyRestriction"
+                },
+                "_name": {
+                    "type": "string"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_name",
+                "restriction"
+            ],
+            "title": "SimpleTypeElement"
+        },
+        "FluffyRestriction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "minLength": {
+                    "$ref": "#/definitions/MaxLength"
+                },
+                "maxLength": {
+                    "$ref": "#/definitions/MaxLength"
+                },
+                "_base": {
+                    "$ref": "#/definitions/Name"
+                },
+                "__prefix": {
+                    "$ref": "#/definitions/Prefix"
+                }
+            },
+            "required": [
+                "__prefix",
+                "_base",
+                "maxLength",
+                "minLength"
+            ],
+            "title": "FluffyRestriction"
+        },
+        "Prefix": {
+            "type": "string",
+            "enum": [
+                "xs"
+            ],
+            "title": "Prefix"
+        },
+        "Name": {
+            "type": "string",
+            "enum": [
+                "xs:dateTime",
+                "xs:string",
+                "xs:int",
+                "DemographicsType",
+                "VisitType",
+                "EncounterType",
+                "ObsType",
+                "EncounterProviderType",
+                "PatientIdentifierType",
+                "PatientBiometricType",
+                "PatientProgramType",
+                "xs:date",
+                "xs:decimal",
+                "MessageHeaderType",
+                "MessageDataType"
+            ],
+            "title": "Name"
+        },
+        "XMLLang": {
+            "type": "string",
+            "enum": [
+                "en"
+            ],
+            "title": "XMLLang"
+        }
+    }
+}
